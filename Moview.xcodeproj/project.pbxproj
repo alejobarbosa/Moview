@@ -17,6 +17,7 @@
 		535211822811BD6E0096FF57 /* MoviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211812811BD6E0096FF57 /* MoviewTests.swift */; };
 		5352118C2811BD6E0096FF57 /* MoviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5352118B2811BD6E0096FF57 /* MoviewUITests.swift */; };
 		5352118E2811BD6E0096FF57 /* MoviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5352118D2811BD6E0096FF57 /* MoviewUITestsLaunchTests.swift */; };
+		535211A12811E3840096FF57 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211A02811E3840096FF57 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		535211872811BD6E0096FF57 /* MoviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5352118B2811BD6E0096FF57 /* MoviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewUITests.swift; sourceTree = "<group>"; };
 		5352118D2811BD6E0096FF57 /* MoviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		535211A02811E3840096FF57 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,12 +103,14 @@
 		535211662811BD6C0096FF57 /* Moview */ = {
 			isa = PBXGroup;
 			children = (
+				5352119A2811E2F00096FF57 /* API */,
+				5352119B2811E2F70096FF57 /* Modules */,
+				5352119C2811E3000096FF57 /* Resources */,
+				5352119D2811E3080096FF57 /* Utils */,
 				535211672811BD6C0096FF57 /* AppDelegate.swift */,
 				535211692811BD6C0096FF57 /* SceneDelegate.swift */,
 				5352116B2811BD6C0096FF57 /* ViewController.swift */,
 				5352116D2811BD6C0096FF57 /* Main.storyboard */,
-				535211732811BD6E0096FF57 /* Assets.xcassets */,
-				535211752811BD6E0096FF57 /* LaunchScreen.storyboard */,
 				535211782811BD6E0096FF57 /* Info.plist */,
 				535211702811BD6C0096FF57 /* Moview.xcdatamodeld */,
 			);
@@ -128,6 +132,85 @@
 				5352118D2811BD6E0096FF57 /* MoviewUITestsLaunchTests.swift */,
 			);
 			path = MoviewUITests;
+			sourceTree = "<group>";
+		};
+		5352119A2811E2F00096FF57 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5352119E2811E3200096FF57 /* Models */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		5352119B2811E2F70096FF57 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				5352119F2811E3610096FF57 /* Base */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5352119C2811E3000096FF57 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				535211A22811E3980096FF57 /* Fonts */,
+				535211A32811E3A20096FF57 /* Storyboards */,
+				535211732811BD6E0096FF57 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5352119D2811E3080096FF57 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				535211A42811E3BE0096FF57 /* Constants */,
+				535211A52811E3C70096FF57 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5352119E2811E3200096FF57 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5352119F2811E3610096FF57 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				535211A02811E3840096FF57 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		535211A22811E3980096FF57 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		535211A32811E3A20096FF57 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				535211752811BD6E0096FF57 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		535211A42811E3BE0096FF57 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		535211A52811E3C70096FF57 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				535211A12811E3840096FF57 /* BaseViewController.swift in Sources */,
 				5352116C2811BD6C0096FF57 /* ViewController.swift in Sources */,
 				535211682811BD6C0096FF57 /* AppDelegate.swift in Sources */,
 				535211722811BD6C0096FF57 /* Moview.xcdatamodeld in Sources */,
