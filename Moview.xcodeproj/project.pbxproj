@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		535211682811BD6C0096FF57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211672811BD6C0096FF57 /* AppDelegate.swift */; };
 		5352116A2811BD6C0096FF57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211692811BD6C0096FF57 /* SceneDelegate.swift */; };
-		5352116C2811BD6C0096FF57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5352116B2811BD6C0096FF57 /* ViewController.swift */; };
+		5352116C2811BD6C0096FF57 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5352116B2811BD6C0096FF57 /* TabBarViewController.swift */; };
 		5352116F2811BD6C0096FF57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5352116D2811BD6C0096FF57 /* Main.storyboard */; };
 		535211722811BD6C0096FF57 /* Moview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535211702811BD6C0096FF57 /* Moview.xcdatamodeld */; };
 		535211742811BD6E0096FF57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 535211732811BD6E0096FF57 /* Assets.xcassets */; };
@@ -21,6 +21,26 @@
 		535211A92811EC460096FF57 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 535211A62811EC460096FF57 /* Montserrat-Medium.ttf */; };
 		535211AA2811EC460096FF57 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 535211A72811EC460096FF57 /* Montserrat-Bold.ttf */; };
 		535211AB2811EC460096FF57 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 535211A82811EC460096FF57 /* Montserrat-Regular.ttf */; };
+		535211AF2811FD880096FF57 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211AE2811FD880096FF57 /* Constants.swift */; };
+		535211B82812031F0096FF57 /* HomeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211B02812031E0096FF57 /* HomeConfiguration.swift */; };
+		535211B92812031F0096FF57 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211B12812031F0096FF57 /* HomePresenter.swift */; };
+		535211BA2812031F0096FF57 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211B22812031F0096FF57 /* HomeRouter.swift */; };
+		535211BB2812031F0096FF57 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211B32812031F0096FF57 /* HomeViewController.swift */; };
+		535211BC2812031F0096FF57 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211B42812031F0096FF57 /* HomeInteractor.swift */; };
+		535211BD2812031F0096FF57 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211B52812031F0096FF57 /* HomeModel.swift */; };
+		535211BE2812031F0096FF57 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535211B62812031F0096FF57 /* HomeViewController.xib */; };
+		535211BF2812031F0096FF57 /* HomeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211B72812031F0096FF57 /* HomeManager.swift */; };
+		535211C928120F590096FF57 /* FavoritesConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211C128120F590096FF57 /* FavoritesConfiguration.swift */; };
+		535211CA28120F590096FF57 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211C228120F590096FF57 /* FavoritesPresenter.swift */; };
+		535211CB28120F590096FF57 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211C328120F590096FF57 /* FavoritesRouter.swift */; };
+		535211CC28120F590096FF57 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211C428120F590096FF57 /* FavoritesViewController.swift */; };
+		535211CD28120F590096FF57 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211C528120F590096FF57 /* FavoritesInteractor.swift */; };
+		535211CE28120F590096FF57 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211C628120F590096FF57 /* FavoritesModel.swift */; };
+		535211CF28120F590096FF57 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535211C728120F590096FF57 /* FavoritesViewController.xib */; };
+		535211D028120F590096FF57 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211C828120F590096FF57 /* FavoritesManager.swift */; };
+		535211D428120F8A0096FF57 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211D228120F8A0096FF57 /* InfoViewController.swift */; };
+		535211D528120F8A0096FF57 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535211D328120F8A0096FF57 /* InfoViewController.xib */; };
+		535211D7281214B70096FF57 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211D6281214B70096FF57 /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +64,7 @@
 		535211642811BD6C0096FF57 /* Moview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		535211672811BD6C0096FF57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		535211692811BD6C0096FF57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5352116B2811BD6C0096FF57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5352116B2811BD6C0096FF57 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		5352116E2811BD6C0096FF57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		535211712811BD6C0096FF57 /* Moview.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Moview.xcdatamodel; sourceTree = "<group>"; };
 		535211732811BD6E0096FF57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +79,26 @@
 		535211A62811EC460096FF57 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		535211A72811EC460096FF57 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		535211A82811EC460096FF57 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		535211AE2811FD880096FF57 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		535211B02812031E0096FF57 /* HomeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfiguration.swift; sourceTree = "<group>"; };
+		535211B12812031F0096FF57 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		535211B22812031F0096FF57 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		535211B32812031F0096FF57 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		535211B42812031F0096FF57 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		535211B52812031F0096FF57 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		535211B62812031F0096FF57 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		535211B72812031F0096FF57 /* HomeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeManager.swift; sourceTree = "<group>"; };
+		535211C128120F590096FF57 /* FavoritesConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfiguration.swift; sourceTree = "<group>"; };
+		535211C228120F590096FF57 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
+		535211C328120F590096FF57 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		535211C428120F590096FF57 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		535211C528120F590096FF57 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
+		535211C628120F590096FF57 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
+		535211C728120F590096FF57 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		535211C828120F590096FF57 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		535211D228120F8A0096FF57 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		535211D328120F8A0096FF57 /* InfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
+		535211D6281214B70096FF57 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +155,6 @@
 				5352119D2811E3080096FF57 /* Utils */,
 				535211672811BD6C0096FF57 /* AppDelegate.swift */,
 				535211692811BD6C0096FF57 /* SceneDelegate.swift */,
-				5352116B2811BD6C0096FF57 /* ViewController.swift */,
-				5352116D2811BD6C0096FF57 /* Main.storyboard */,
 				535211782811BD6E0096FF57 /* Info.plist */,
 				535211702811BD6C0096FF57 /* Moview.xcdatamodeld */,
 			);
@@ -152,6 +190,10 @@
 			isa = PBXGroup;
 			children = (
 				5352119F2811E3610096FF57 /* Base */,
+				535211C028120F280096FF57 /* Favorites */,
+				535211AC2811F7B50096FF57 /* Home */,
+				535211D128120F660096FF57 /* Info */,
+				535211AD2811FC870096FF57 /* TabBar */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -211,6 +253,7 @@
 		535211A42811E3BE0096FF57 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				535211AE2811FD880096FF57 /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -218,8 +261,57 @@
 		535211A52811E3C70096FF57 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				535211D6281214B70096FF57 /* UIColorExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		535211AC2811F7B50096FF57 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				535211B02812031E0096FF57 /* HomeConfiguration.swift */,
+				535211B12812031F0096FF57 /* HomePresenter.swift */,
+				535211B22812031F0096FF57 /* HomeRouter.swift */,
+				535211B32812031F0096FF57 /* HomeViewController.swift */,
+				535211B42812031F0096FF57 /* HomeInteractor.swift */,
+				535211B52812031F0096FF57 /* HomeModel.swift */,
+				535211B62812031F0096FF57 /* HomeViewController.xib */,
+				535211B72812031F0096FF57 /* HomeManager.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		535211AD2811FC870096FF57 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				5352116B2811BD6C0096FF57 /* TabBarViewController.swift */,
+				5352116D2811BD6C0096FF57 /* Main.storyboard */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		535211C028120F280096FF57 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				535211C128120F590096FF57 /* FavoritesConfiguration.swift */,
+				535211C228120F590096FF57 /* FavoritesPresenter.swift */,
+				535211C328120F590096FF57 /* FavoritesRouter.swift */,
+				535211C428120F590096FF57 /* FavoritesViewController.swift */,
+				535211C528120F590096FF57 /* FavoritesInteractor.swift */,
+				535211C628120F590096FF57 /* FavoritesModel.swift */,
+				535211C728120F590096FF57 /* FavoritesViewController.xib */,
+				535211C828120F590096FF57 /* FavoritesManager.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		535211D128120F660096FF57 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				535211D228120F8A0096FF57 /* InfoViewController.swift */,
+				535211D328120F8A0096FF57 /* InfoViewController.xib */,
+			);
+			path = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,10 +419,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				535211AB2811EC460096FF57 /* Montserrat-Regular.ttf in Resources */,
+				535211D528120F8A0096FF57 /* InfoViewController.xib in Resources */,
 				535211AA2811EC460096FF57 /* Montserrat-Bold.ttf in Resources */,
 				535211772811BD6E0096FF57 /* LaunchScreen.storyboard in Resources */,
 				535211742811BD6E0096FF57 /* Assets.xcassets in Resources */,
 				535211A92811EC460096FF57 /* Montserrat-Medium.ttf in Resources */,
+				535211BE2812031F0096FF57 /* HomeViewController.xib in Resources */,
+				535211CF28120F590096FF57 /* FavoritesViewController.xib in Resources */,
 				5352116F2811BD6C0096FF57 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,10 +452,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				535211A12811E3840096FF57 /* BaseViewController.swift in Sources */,
-				5352116C2811BD6C0096FF57 /* ViewController.swift in Sources */,
+				535211BC2812031F0096FF57 /* HomeInteractor.swift in Sources */,
+				5352116C2811BD6C0096FF57 /* TabBarViewController.swift in Sources */,
 				535211682811BD6C0096FF57 /* AppDelegate.swift in Sources */,
+				535211CB28120F590096FF57 /* FavoritesRouter.swift in Sources */,
+				535211C928120F590096FF57 /* FavoritesConfiguration.swift in Sources */,
+				535211CA28120F590096FF57 /* FavoritesPresenter.swift in Sources */,
+				535211B82812031F0096FF57 /* HomeConfiguration.swift in Sources */,
+				535211CC28120F590096FF57 /* FavoritesViewController.swift in Sources */,
+				535211BF2812031F0096FF57 /* HomeManager.swift in Sources */,
+				535211D428120F8A0096FF57 /* InfoViewController.swift in Sources */,
 				535211722811BD6C0096FF57 /* Moview.xcdatamodeld in Sources */,
+				535211D028120F590096FF57 /* FavoritesManager.swift in Sources */,
+				535211BB2812031F0096FF57 /* HomeViewController.swift in Sources */,
+				535211CD28120F590096FF57 /* FavoritesInteractor.swift in Sources */,
 				5352116A2811BD6C0096FF57 /* SceneDelegate.swift in Sources */,
+				535211BD2812031F0096FF57 /* HomeModel.swift in Sources */,
+				535211AF2811FD880096FF57 /* Constants.swift in Sources */,
+				535211BA2812031F0096FF57 /* HomeRouter.swift in Sources */,
+				535211D7281214B70096FF57 /* UIColorExtension.swift in Sources */,
+				535211CE28120F590096FF57 /* FavoritesModel.swift in Sources */,
+				535211B92812031F0096FF57 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
