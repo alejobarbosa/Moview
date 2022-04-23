@@ -7,8 +7,9 @@
 
 import UIKit
 
-protocol IHomePresenter: class {
-	// do someting...
+protocol IHomePresenter: AnyObject {
+    func showError(message: String)
+    func showData()
 }
 
 class HomePresenter: IHomePresenter {	
@@ -17,4 +18,12 @@ class HomePresenter: IHomePresenter {
 	init(view: IHomeViewController?) {
 		self.view = view
 	}
+    
+    func showError(message: String) {
+        self.view?.showError(message: message)
+    }
+    
+    func showData() {
+        self.view?.showData()
+    }
 }

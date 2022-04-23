@@ -41,6 +41,17 @@
 		535211D428120F8A0096FF57 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211D228120F8A0096FF57 /* InfoViewController.swift */; };
 		535211D528120F8A0096FF57 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535211D328120F8A0096FF57 /* InfoViewController.xib */; };
 		535211D7281214B70096FF57 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211D6281214B70096FF57 /* UIColorExtension.swift */; };
+		53DCE32B2814402E006B1CE0 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE3292814402E006B1CE0 /* MovieCell.swift */; };
+		53DCE32C2814402E006B1CE0 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DCE32A2814402E006B1CE0 /* MovieCell.xib */; };
+		53DCE32E281452EA006B1CE0 /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE32D281452EA006B1CE0 /* MoviesResponse.swift */; };
+		53DCE33028145333006B1CE0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE32F28145333006B1CE0 /* Result.swift */; };
+		53DCE33228145411006B1CE0 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE33128145411006B1CE0 /* UIImageViewExtension.swift */; };
+		53DCE334281454A2006B1CE0 /* ServicesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE333281454A2006B1CE0 /* ServicesConstants.swift */; };
+		53DCE33628145DC7006B1CE0 /* ComunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE33528145DC7006B1CE0 /* ComunicationManager.swift */; };
+		53DCE33828145E6F006B1CE0 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE33728145E6F006B1CE0 /* ErrorResponse.swift */; };
+		53DCE33A28145F10006B1CE0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE33928145F10006B1CE0 /* NetworkManager.swift */; };
+		53DCE33C281461FD006B1CE0 /* LoggerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE33B281461FD006B1CE0 /* LoggerExtension.swift */; };
+		53DCE33E281466F5006B1CE0 /* UITableViewCellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE33D281466F5006B1CE0 /* UITableViewCellExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +110,17 @@
 		535211D228120F8A0096FF57 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		535211D328120F8A0096FF57 /* InfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		535211D6281214B70096FF57 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		53DCE3292814402E006B1CE0 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		53DCE32A2814402E006B1CE0 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		53DCE32D281452EA006B1CE0 /* MoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
+		53DCE32F28145333006B1CE0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		53DCE33128145411006B1CE0 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		53DCE333281454A2006B1CE0 /* ServicesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesConstants.swift; sourceTree = "<group>"; };
+		53DCE33528145DC7006B1CE0 /* ComunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComunicationManager.swift; sourceTree = "<group>"; };
+		53DCE33728145E6F006B1CE0 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		53DCE33928145F10006B1CE0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		53DCE33B281461FD006B1CE0 /* LoggerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerExtension.swift; sourceTree = "<group>"; };
+		53DCE33D281466F5006B1CE0 /* UITableViewCellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				5352119E2811E3200096FF57 /* Models */,
+				53DCE33528145DC7006B1CE0 /* ComunicationManager.swift */,
+				53DCE33928145F10006B1CE0 /* NetworkManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -220,6 +244,9 @@
 		5352119E2811E3200096FF57 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				53DCE32D281452EA006B1CE0 /* MoviesResponse.swift */,
+				53DCE32F28145333006B1CE0 /* Result.swift */,
+				53DCE33728145E6F006B1CE0 /* ErrorResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				535211AE2811FD880096FF57 /* Constants.swift */,
+				53DCE333281454A2006B1CE0 /* ServicesConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -262,6 +290,9 @@
 			isa = PBXGroup;
 			children = (
 				535211D6281214B70096FF57 /* UIColorExtension.swift */,
+				53DCE33128145411006B1CE0 /* UIImageViewExtension.swift */,
+				53DCE33B281461FD006B1CE0 /* LoggerExtension.swift */,
+				53DCE33D281466F5006B1CE0 /* UITableViewCellExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -269,6 +300,7 @@
 		535211AC2811F7B50096FF57 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				53DCE32828143FF7006B1CE0 /* MovieCell */,
 				535211B02812031E0096FF57 /* HomeConfiguration.swift */,
 				535211B12812031F0096FF57 /* HomePresenter.swift */,
 				535211B22812031F0096FF57 /* HomeRouter.swift */,
@@ -312,6 +344,15 @@
 				535211D328120F8A0096FF57 /* InfoViewController.xib */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		53DCE32828143FF7006B1CE0 /* MovieCell */ = {
+			isa = PBXGroup;
+			children = (
+				53DCE3292814402E006B1CE0 /* MovieCell.swift */,
+				53DCE32A2814402E006B1CE0 /* MovieCell.xib */,
+			);
+			path = MovieCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +463,7 @@
 				535211D528120F8A0096FF57 /* InfoViewController.xib in Resources */,
 				535211AA2811EC460096FF57 /* Montserrat-Bold.ttf in Resources */,
 				535211772811BD6E0096FF57 /* LaunchScreen.storyboard in Resources */,
+				53DCE32C2814402E006B1CE0 /* MovieCell.xib in Resources */,
 				535211742811BD6E0096FF57 /* Assets.xcassets in Resources */,
 				535211A92811EC460096FF57 /* Montserrat-Medium.ttf in Resources */,
 				535211BE2812031F0096FF57 /* HomeViewController.xib in Resources */,
@@ -455,23 +497,33 @@
 				535211BC2812031F0096FF57 /* HomeInteractor.swift in Sources */,
 				5352116C2811BD6C0096FF57 /* TabBarViewController.swift in Sources */,
 				535211682811BD6C0096FF57 /* AppDelegate.swift in Sources */,
+				53DCE33628145DC7006B1CE0 /* ComunicationManager.swift in Sources */,
 				535211CB28120F590096FF57 /* FavoritesRouter.swift in Sources */,
 				535211C928120F590096FF57 /* FavoritesConfiguration.swift in Sources */,
+				53DCE33028145333006B1CE0 /* Result.swift in Sources */,
 				535211CA28120F590096FF57 /* FavoritesPresenter.swift in Sources */,
 				535211B82812031F0096FF57 /* HomeConfiguration.swift in Sources */,
 				535211CC28120F590096FF57 /* FavoritesViewController.swift in Sources */,
 				535211BF2812031F0096FF57 /* HomeManager.swift in Sources */,
+				53DCE33A28145F10006B1CE0 /* NetworkManager.swift in Sources */,
 				535211D428120F8A0096FF57 /* InfoViewController.swift in Sources */,
 				535211722811BD6C0096FF57 /* Moview.xcdatamodeld in Sources */,
+				53DCE33C281461FD006B1CE0 /* LoggerExtension.swift in Sources */,
 				535211D028120F590096FF57 /* FavoritesManager.swift in Sources */,
 				535211BB2812031F0096FF57 /* HomeViewController.swift in Sources */,
+				53DCE33828145E6F006B1CE0 /* ErrorResponse.swift in Sources */,
 				535211CD28120F590096FF57 /* FavoritesInteractor.swift in Sources */,
 				5352116A2811BD6C0096FF57 /* SceneDelegate.swift in Sources */,
+				53DCE32B2814402E006B1CE0 /* MovieCell.swift in Sources */,
+				53DCE32E281452EA006B1CE0 /* MoviesResponse.swift in Sources */,
+				53DCE33E281466F5006B1CE0 /* UITableViewCellExtension.swift in Sources */,
 				535211BD2812031F0096FF57 /* HomeModel.swift in Sources */,
 				535211AF2811FD880096FF57 /* Constants.swift in Sources */,
 				535211BA2812031F0096FF57 /* HomeRouter.swift in Sources */,
+				53DCE334281454A2006B1CE0 /* ServicesConstants.swift in Sources */,
 				535211D7281214B70096FF57 /* UIColorExtension.swift in Sources */,
 				535211CE28120F590096FF57 /* FavoritesModel.swift in Sources */,
+				53DCE33228145411006B1CE0 /* UIImageViewExtension.swift in Sources */,
 				535211B92812031F0096FF57 /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,10 +7,17 @@
 
 import Foundation
 
-protocol IHomeManager: class {
-	// do someting...
+protocol IHomeManager {
+    func getPopularMovies(page: Int,
+                          handler: @escaping (Result<MoviesResponse, ErrorResponses>) -> Void)
 }
 
 class HomeManager: IHomeManager {
-	// do someting...
+    private let comunicationManager = ComunicationManager()
+    
+    func getPopularMovies(page: Int,
+                          handler: @escaping (Result<MoviesResponse, ErrorResponses>) -> Void) {
+        comunicationManager.getPopulatMovies(page: page,
+                                             handler: handler)
+    }
 }

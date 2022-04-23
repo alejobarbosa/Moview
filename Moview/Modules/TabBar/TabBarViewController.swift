@@ -34,7 +34,6 @@ class TabBarViewController: UITabBarController {
         info.tabBarItem.selectedImage =  UIImage(named: Constants.Images.icInfoYellow)
         let views = [home, favorites, info]
         self.viewControllers = views
-        UITabBar.appearance().barTintColor = UIColor.AppColor.red
     }
 
 

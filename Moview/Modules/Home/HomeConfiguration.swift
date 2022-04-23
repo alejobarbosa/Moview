@@ -18,7 +18,6 @@ class HomeConfiguration {
         
         controller.interactor = interactor
         controller.router = router
-        interactor.parameters = parameters
         return controller
     }
 }
