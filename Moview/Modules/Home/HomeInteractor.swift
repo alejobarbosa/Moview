@@ -36,11 +36,11 @@ class HomeInteractor: IHomeInteractor {
             switch response {
             case .success(let moviesResponse):
                 DispatchQueue.main.async {
-                    self?.totalPages = moviesResponse.totalPages
+                    self?.totalPages = moviesResponse.totalPages ?? 1
                     if (self?.isNewCall ?? true) {
-                        self?.movies = moviesResponse.results
+                        self?.movies = moviesResponse.results ?? [Movie]()
                     } else {
-                        self?.movies.append(contentsOf: moviesResponse.results)
+                        self?.movies.append(contentsOf: moviesResponse.results ?? [Movie]())
                     }
                     self?.presenter?.showData()
                     self?.isLoading = false

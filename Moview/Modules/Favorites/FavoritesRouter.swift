@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol IFavoritesRouter: class {
+protocol IFavoritesRouter: AnyObject {
 	// do someting...
 }
 

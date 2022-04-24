@@ -80,7 +80,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let movieId = self.interactor?.movies[indexPath.row].id {
+        if let movie = self.interactor?.movies[indexPath.row] {
+            self.router?.navigateToDetail(movie: movie)
         }
     }
     

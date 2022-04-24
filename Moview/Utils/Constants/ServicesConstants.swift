@@ -15,7 +15,7 @@ struct ServicesConstants {
         static let categoryKey = "category"
         static let pageKey = "page"
         static let apiKey = "api_key"
-        static let itemId = "{ITEM_ID}"
+        static let itemId = "{MOVIE_ID}"
     }
     
     ///Builder to get the each url
@@ -34,12 +34,24 @@ struct ServicesConstants {
             return "https://image.tmdb.org/t/p/w500"
         }
         
+        func getYoutubeBaseURL() -> String {
+            return "https://www.youtube.com/watch?v="
+        }
+        
+        func getIMDbBaseURL() -> String {
+            return "https://www.imdb.com/title/"
+        }
+        
         func getPopularMovies() -> String {
             return domain + "/popular"
         }
         
         func getMovieDetailPath() -> String {
-            return domain + "/{ITEM_ID}"
+            return domain + "/{MOVIE_ID}"
+        }
+        
+        func getVideosPath() -> String {
+            return domain + "/{MOVIE_ID}/videos"
         }
         
     }

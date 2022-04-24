@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol IHomeRouter: class {
-	// do someting...
+protocol IHomeRouter: AnyObject {
+    func navigateToDetail(movie: Movie)
 }
 
 class HomeRouter: IHomeRouter {	
@@ -17,4 +17,9 @@ class HomeRouter: IHomeRouter {
 	init(view: HomeViewController?) {
 		self.view = view
 	}
+    
+    func navigateToDetail(movie: Movie){
+        let vc = MovieDetailConfiguration.setup(movie: movie)
+        self.view?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

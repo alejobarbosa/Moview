@@ -9,13 +9,6 @@ import Foundation
 
 struct Constants {
     
-    //MARK: Titles
-    struct Titles {
-        static let homeVC = "Movies"
-        static let favoritesVC = "Favorites"
-        static let infoVC = "Info"
-    }
-    
     //MARK: Error View
     struct ErrorView {
         static let errorTitle = "¡Ups!"
@@ -23,14 +16,16 @@ struct Constants {
         static let noConectionMessage = "It looks like you have no internet connection."
     }
     
+    //MARK: Generic
+    static let acceptTitle = "Accept"
+    
     //MARK: Images
     struct Images {
-        static let icHomeWhite = "ic_home_white"
-        static let icHomeYellow = "ic_home_yellow"
+        static let icFavBlack = "ic_fav_black"
+        static let icFavRed = "ic_fav_red"
         static let icFavWhite = "ic_fav_white"
-        static let icFavYellow = "ic_fav_yellow"
+        static let icHomeWhite = "ic_home_white"
         static let icInfoWhite = "ic_info_white"
-        static let icInfoYellow = "ic_info_yellow"
     }
     
     //MARK: Logs Categories
@@ -47,7 +42,11 @@ struct Constants {
         
     }
     
-    //MARK: Generic
-    static let acceptTitle = "Accept"
+    //MARK: Titles
+    struct Titles {
+        static let homeVC = "Movies"
+        static let favoritesVC = "Favorites"
+        static let infoVC = "Info"
+    }
     
 }

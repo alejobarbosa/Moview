@@ -37,7 +37,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qza-lI-nMw">
-                                <rect key="frame" x="135.5" y="13" width="182.5" height="22"/>
+                                <rect key="frame" x="135.5" y="13" width="167.5" height="22"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
                             <constraint firstItem="yQ6-CU-SWd" firstAttribute="top" secondItem="qza-lI-nMw" secondAttribute="bottom" constant="10" id="N9r-gV-AaS"/>
                             <constraint firstItem="jX3-ai-FOP" firstAttribute="leading" secondItem="sMB-kQ-4fL" secondAttribute="leading" id="a9L-1p-jLd"/>
                             <constraint firstItem="dHQ-ms-Ca6" firstAttribute="centerY" secondItem="hlD-Zl-2yO" secondAttribute="centerY" id="cVG-2Z-s83"/>
-                            <constraint firstAttribute="trailing" secondItem="qza-lI-nMw" secondAttribute="trailing" constant="15" id="g3j-lC-g55"/>
+                            <constraint firstAttribute="trailing" secondItem="qza-lI-nMw" secondAttribute="trailing" constant="30" id="g3j-lC-g55"/>
                             <constraint firstItem="jX3-ai-FOP" firstAttribute="top" secondItem="sMB-kQ-4fL" secondAttribute="bottom" constant="15" id="kxm-ra-WBl"/>
                             <constraint firstItem="yQ6-CU-SWd" firstAttribute="leading" secondItem="qza-lI-nMw" secondAttribute="leading" id="lW8-Fx-R7o"/>
                             <constraint firstItem="dHQ-ms-Ca6" firstAttribute="height" secondItem="hlD-Zl-2yO" secondAttribute="height" multiplier="0.85" id="r1E-Z7-n4w"/>

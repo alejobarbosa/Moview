@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol IHomeManager {
+protocol IHomeManager: AnyObject {
     func getPopularMovies(page: Int,
                           handler: @escaping (Result<MoviesResponse, ErrorResponses>) -> Void)
 }
