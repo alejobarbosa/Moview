@@ -167,6 +167,14 @@
                                         <constraint firstAttribute="width" constant="50" id="skh-Z7-HhA"/>
                                     </constraints>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msD-jU-U7b">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain"/>
+                                    <connections>
+                                        <action selector="onTrailerClick:" destination="-1" eventType="touchUpInside" id="scQ-Lq-bl4"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -176,6 +184,10 @@
                                 <constraint firstAttribute="width" constant="120" id="HUL-kS-SMk"/>
                                 <constraint firstItem="Vhs-56-1oQ" firstAttribute="top" secondItem="2C8-YL-gbj" secondAttribute="top" id="HdE-AW-RVC"/>
                                 <constraint firstItem="Tq8-A2-2kI" firstAttribute="top" secondItem="Vhs-56-1oQ" secondAttribute="bottom" id="Ota-o9-Uwn"/>
+                                <constraint firstItem="msD-jU-U7b" firstAttribute="height" secondItem="2C8-YL-gbj" secondAttribute="height" id="R5C-1Z-NNg"/>
+                                <constraint firstItem="msD-jU-U7b" firstAttribute="centerX" secondItem="2C8-YL-gbj" secondAttribute="centerX" id="c9K-2s-dgs"/>
+                                <constraint firstItem="msD-jU-U7b" firstAttribute="width" secondItem="2C8-YL-gbj" secondAttribute="width" id="dex-HF-OMF"/>
+                                <constraint firstItem="msD-jU-U7b" firstAttribute="centerY" secondItem="2C8-YL-gbj" secondAttribute="centerY" id="yXf-fS-WHc"/>
                             </constraints>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHv-rH-y9w">
@@ -193,15 +205,27 @@
                                         <constraint firstAttribute="width" secondItem="VVU-4Y-r9U" secondAttribute="height" multiplier="1:1" id="ofb-O4-9K8"/>
                                     </constraints>
                                 </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEH-CV-Lna">
+                                    <rect key="frame" x="-20" y="0.0" width="120" height="60"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain"/>
+                                    <connections>
+                                        <action selector="onIMDbClick:" destination="-1" eventType="touchUpInside" id="Zic-pT-W83"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="80" id="4Uw-Og-IGB"/>
+                                <constraint firstItem="HEH-CV-Lna" firstAttribute="width" secondItem="FHv-rH-y9w" secondAttribute="width" multiplier="1.5" id="ABJ-P9-SMa"/>
                                 <constraint firstItem="thD-fT-BZV" firstAttribute="top" secondItem="FHv-rH-y9w" secondAttribute="top" id="DDA-we-o9W"/>
                                 <constraint firstAttribute="height" constant="60" id="KTe-Cz-VcR"/>
                                 <constraint firstItem="thD-fT-BZV" firstAttribute="leading" secondItem="FHv-rH-y9w" secondAttribute="leading" id="O5u-aq-O6K"/>
+                                <constraint firstItem="HEH-CV-Lna" firstAttribute="centerX" secondItem="FHv-rH-y9w" secondAttribute="centerX" id="SHJ-t7-MQL"/>
                                 <constraint firstItem="VVU-4Y-r9U" firstAttribute="top" secondItem="thD-fT-BZV" secondAttribute="bottom" constant="-15" id="YhG-fQ-lqx"/>
+                                <constraint firstItem="HEH-CV-Lna" firstAttribute="centerY" secondItem="FHv-rH-y9w" secondAttribute="centerY" id="cp8-2Z-xbt"/>
                                 <constraint firstItem="VVU-4Y-r9U" firstAttribute="centerX" secondItem="thD-fT-BZV" secondAttribute="centerX" id="odG-mh-fcL"/>
+                                <constraint firstItem="HEH-CV-Lna" firstAttribute="height" secondItem="FHv-rH-y9w" secondAttribute="height" id="slp-S9-UOQ"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -252,7 +276,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="nU0-E6-ZGX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="G2C-pT-Mri"/>
                 <constraint firstItem="nU0-E6-ZGX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="PCu-yf-uPS"/>

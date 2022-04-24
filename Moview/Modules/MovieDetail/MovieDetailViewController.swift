@@ -44,7 +44,7 @@ class MovieDetailViewController: BaseViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-        self.embedInScroll(self.viewContent, height: 800)
+        self.embedInScroll(self.viewContent, height: 900)
         self.viewFav.layer.cornerRadius = 20
         self.setFirstData()
         self.showActivityIndicator(show: true)
@@ -55,6 +55,7 @@ class MovieDetailViewController: BaseViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         overrideUserInterfaceStyle = .dark
+        self.navigationController?.navigationBar.barTintColor = .black
     }
 
     ///Method to load principal data until service detail response
@@ -73,12 +74,14 @@ class MovieDetailViewController: BaseViewController {
         self.lblRating.text = interactor.movie.voteAverage?.description
     }
     
-    @objc func onTrailerClick(){
+    @IBAction func onTrailerClick(_ sender: Any) {
+        print("Click Tailer")
         let urlString = ServicesConstants.URL().getYoutubeBaseURL() + self.trailerKey
         self.router?.openLink(urlString)
     }
     
-    @objc func onIMDbClick(){
+    @IBAction func onIMDbClick(_ sender: Any) {
+        print("Click IMDb")
         let urlString = ServicesConstants.URL().getIMDbBaseURL() + (self.interactor?.movieDetail?.imdbID ?? "")
         self.router?.openLink(urlString)
     }
@@ -116,9 +119,7 @@ extension MovieDetailViewController: IMovieDetailViewController {
         if let imdb = movieDetail.imdbID {
             self.viewIMDb.isHidden = imdb.isEmpty
             self.lblWatchOnText.text = imdb.isEmpty ? "" : MovieDetailModel.Texts.watchOn
-            self.viewIMDb.addGestureRecognizer(UIGestureRecognizer(target: self,
-                                                                   action: #selector(self.onIMDbClick)))
-            self.viewIMDb.isUserInteractionEnabled = true
+            self.view.layoutSubviews()
         }
     }
     
@@ -127,11 +128,9 @@ extension MovieDetailViewController: IMovieDetailViewController {
         guard let trailer = self.interactor?.trailer else { return }
         self.viewTrailer.isHidden = false
         self.heightViewTrailer.constant = 70
+        self.view.layoutSubviews()
         self.lblTrailerText.text = MovieDetailModel.Texts.watchTrailer
         self.trailerKey = trailer.key ?? ""
-        self.viewTrailer.addGestureRecognizer(UIGestureRecognizer(target: self,
-                                                                  action: #selector(self.onTrailerClick)))
-        self.viewTrailer.isUserInteractionEnabled = true
     }
     
     func hideProgress(){
