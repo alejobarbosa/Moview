@@ -24,7 +24,6 @@ class MovieDetailInteractor: IMovieDetailInteractor {
     var movie: Movie!
     var movieDetail: MovieDetail?
     var trailer: Video?
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var favoritesMovies: [MovieCD] = []
     var movieCD: MovieCD?
 
@@ -88,51 +87,51 @@ class MovieDetailInteractor: IMovieDetailInteractor {
     
     //MARK: Fetch Favorites Movies
     private func fetchFavorites(){
-        do {
-            self.favoritesMovies = try context.fetch(MovieCD.fetchRequest())
-            Logger.fetchDataCDSuccess.info("Fetch movies from Core Data")
-        } catch {
-            Logger.fetchDataCDError.error("Error fetching movies from Core Data")
-        }
+        self.manager?.fetchFavorites(handler: { [weak self] (response) in
+            switch response {
+            case .success(let moviesCD):
+                self?.favoritesMovies = moviesCD
+                break
+            default:
+                break
+            }
+        })
     }
     
     //MARK: Save Favorite Movie
     func saveFavorite(){
-        let movieCD = MovieCD(context: self.context)
-        movieCD.id = Int32(movieDetail?.id ?? 0)
-        movieCD.overview = movieDetail?.overview
-        movieCD.posterPath = movieDetail?.posterPath
-        movieCD.releaseDate = movieDetail?.releaseDate
-        movieCD.title = movieDetail?.title
-        movieCD.voteAverage = movieDetail?.voteAverage ?? 0.0
-        do {
-            try self.context.save()
-            self.favoritesMovies.append(movieCD)
-            if self.movie != nil {
-                self.movie.isFav = true
+        self.manager?.saveFavorite(id: movieDetail?.id ?? 0,
+                                   overview: movieDetail?.overview ?? "",
+                                   posterPath: movieDetail?.posterPath ?? "",
+                                   releaseDate: movieDetail?.releaseDate ?? "",
+                                   title: movieDetail?.title ?? "",
+                                   voteAverage: movieDetail?.voteAverage ?? 0.0,
+                                   handler: { [weak self] (response) in
+            switch response {
+            case .success(let movieCD):
+                self?.favoritesMovies.append(movieCD)
+                if self?.movie != nil {
+                    self?.movie.isFav = true
+                }
+                break
+            default:
+                break
             }
-            Logger.saveDataCDSuccess.info("Save movie in Core Data")
-        } catch {
-            Logger.saveDataCDError.error("Error saving movie in Core Data")
-        }
+        })
     }
     
     //MARK: Remove Favorite Movie
     func removeFavorite(){
         if let movieToRemove = self.favoritesMovies.filter({$0.id == movieDetail?.id ?? 0}).first {
-            self.context.delete(movieToRemove)
-            do {
-                try self.context.save()
-                if let index = self.favoritesMovies.firstIndex(of: movieToRemove){
-                    self.favoritesMovies.remove(at: index)
-                    if self.movie != nil {
-                        self.movie.isFav = false
+            self.manager?.removeFavorite(movieCD: movieToRemove, handler: { [weak self] (success) in
+                if success,
+                   let index = self?.favoritesMovies.firstIndex(of: movieToRemove){
+                    self?.favoritesMovies.remove(at: index)
+                    if self?.movie != nil {
+                        self?.movie.isFav = false
                     }
                 }
-                Logger.removeDataCDSuccess.info("Remove movie from Core Data")
-            } catch {
-                Logger.saveDataCDError.error("Error removing movie from Core Data")
-            }
+            })
         }
     }
     

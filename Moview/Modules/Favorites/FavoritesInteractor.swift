@@ -19,7 +19,6 @@ class FavoritesInteractor: IFavoritesInteractor {
     var presenter: IFavoritesPresenter?
     var manager: IFavoritesManager?
     var movies: [MovieCD]! = []
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     init(presenter: IFavoritesPresenter, manager: IFavoritesManager) {
     	self.presenter = presenter
@@ -29,27 +28,31 @@ class FavoritesInteractor: IFavoritesInteractor {
     
     //MARK: Fetch Favorites Movies
     func fetchFavorites(){
-        do {
-            self.movies = try context.fetch(MovieCD.fetchRequest())
-            Logger.fetchDataCDSuccess.info("Fetch movies from Core Data")
-        } catch {
-            Logger.fetchDataCDError.error("Error fetching movies from Core Data")
-        }
+        self.manager?.fetchFavorites(handler: { [weak self] (response) in
+            switch response {
+            case .success(let moviesCD):
+                self?.movies = moviesCD
+                break
+            default:
+                break
+            }
+        })
     }
     
     //MARK: Remove Favorite Movie
     func removeFavorite(id: Int){
         if let movieToRemove = self.movies.filter({$0.id == id}).first {
-            self.context.delete(movieToRemove)
-            do {
-                try self.context.save()
-                if let index = self.movies.firstIndex(of: movieToRemove){
-                    self.movies.remove(at: index)
-                    self.presenter?.reloadTableView()
+            self.manager?.removeFavorite(movieCD: movieToRemove,
+                                         handler: { [weak self] (success) in
+                if success {
+                    if let index = self?.movies.firstIndex(of: movieToRemove){
+                        self?.movies.remove(at: index)
+                        DispatchQueue.main.async {
+                            self?.presenter?.reloadTableView()
+                        }
+                    }
                 }
-            } catch {
-                
-            }
+            })
         }
     }
     

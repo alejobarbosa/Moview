@@ -26,7 +26,6 @@ class HomeInteractor: IHomeInteractor {
     var isNewCall: Bool = true
     var isLoading: Bool = false
     var favoritesMovies: [MovieCD] = []
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     init(presenter: IHomePresenter, manager: IHomeManager) {
     	self.presenter = presenter
@@ -68,19 +67,24 @@ class HomeInteractor: IHomeInteractor {
     //MARK: Fetch Favorites Movies
     private func fetchFavorites(){
         do {
-            self.favoritesMovies = try context.fetch(MovieCD.fetchRequest())
-            self.updateMovies()
-            Logger.fetchDataCDSuccess.info("Fetch movies from Core Data")
-        } catch {
-            DispatchQueue.main.async {
-                self.presenter?.showData()
-            }
-            Logger.fetchDataCDError.error("Error fetching movies from Core Data")
+            self.manager?.fetchFavorites(handler: { [weak self] (response) in
+                switch response {
+                case .success(let moviesCD):
+                    self?.favoritesMovies = moviesCD
+                    self?.updateMovies()
+                    break
+                case .failure:
+                    DispatchQueue.main.async {
+                        self?.presenter?.showData()
+                    }
+                    break
+                }
+            })
         }
     }
     
     //MARK: Update Movies
-    private func updateMovies(){
+    func updateMovies(){
         for (index, i) in self.movies.enumerated() {
             if !(self.favoritesMovies.filter({$0.id == i.id ?? -1}).isEmpty){
                 self.movies[index].isFav = true
@@ -93,39 +97,35 @@ class HomeInteractor: IHomeInteractor {
     
     //MARK: Save Favorite Movie
     func saveFavorite(movie: Movie, index: Int){
-        let movieCD = MovieCD(context: self.context)
-        movieCD.id = Int32(movie.id ?? 0)
-        movieCD.overview = movie.overview
-        movieCD.posterPath = movie.posterPath
-        movieCD.releaseDate = movie.releaseDate
-        movieCD.title = movie.title
-        movieCD.voteAverage = movie.voteAverage ?? 0.0
-        do {
-            try self.context.save()
-            self.favoritesMovies.append(movieCD)
-            self.movies[index].isFav = true
-            Logger.saveDataCDSuccess.info("Save movie in Core Data")
-        } catch {
-            Logger.saveDataCDError.error("Error saving movie in Core Data")
-        }
+        self.manager?.saveFavorite(id: movie.id ?? 0,
+                                   overview: movie.overview ?? "",
+                                   posterPath: movie.posterPath ?? "",
+                                   releaseDate: movie.releaseDate ?? "",
+                                   title: movie.title ?? "",
+                                   voteAverage: movie.voteAverage ?? 0.0,
+                                   handler: { [weak self] (response) in
+            switch response {
+            case .success(let movieCD):
+                self?.favoritesMovies.append(movieCD)
+                self?.movies[index].isFav = true
+                break
+            default:
+                break
+            }
+        })
     }
     
     //MARK: Remove Favorite Movie
     func removeFavorite(id: Int){
         if let movieToRemove = self.favoritesMovies.filter({$0.id == id}).first {
-            self.context.delete(movieToRemove)
-            do {
-                try self.context.save()
-                if let index = self.favoritesMovies.firstIndex(of: movieToRemove){
-                    self.favoritesMovies.remove(at: index)
-                    for (index, i) in self.movies.enumerated() where i.id == id{
-                        self.movies[index].isFav = false
-                    }
+            self.manager?.removeFavorite(movieCD: movieToRemove, handler: { [weak self] (success) in
+                if success,
+                   let indexFav = self?.favoritesMovies.firstIndex(of: movieToRemove),
+                   let indexMovie = self?.movies.firstIndex(where: {$0.id == id}) {
+                    self?.favoritesMovies.remove(at: indexFav)
+                    self?.movies[indexMovie].isFav = false
                 }
-                Logger.removeDataCDSuccess.info("Remove movie from Core Data")
-            } catch {
-                Logger.saveDataCDError.error("Error removing movie from Core Data")
-            }
+            })
         }
     }
     

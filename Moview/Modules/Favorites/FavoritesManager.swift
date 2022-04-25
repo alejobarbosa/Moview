@@ -7,10 +7,22 @@
 
 import Foundation
 
-protocol IFavoritesManager: class {
-	// do someting...
+protocol IFavoritesManager: AnyObject {
+    func fetchFavorites(handler: @escaping (Result<[MovieCD], Error>) -> Void)
+    func removeFavorite(movieCD: MovieCD,
+                        handler: @escaping (Bool) -> Void)
 }
 
 class FavoritesManager: IFavoritesManager {
-	// do someting...
+    
+    private let coreDataManager = CoreDataManager()
+	
+    func fetchFavorites(handler: @escaping (Result<[MovieCD], Error>) -> Void){
+        coreDataManager.fetchFavorites(handler: handler)
+    }
+    
+    func removeFavorite(movieCD: MovieCD, handler: @escaping (Bool) -> Void){
+        coreDataManager.removeFavorite(movieCD: movieCD, handler: handler)
+    }
+    
 }

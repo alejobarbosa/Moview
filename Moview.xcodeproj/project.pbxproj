@@ -41,6 +41,7 @@
 		535211D428120F8A0096FF57 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211D228120F8A0096FF57 /* InfoViewController.swift */; };
 		535211D528120F8A0096FF57 /* InfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 535211D328120F8A0096FF57 /* InfoViewController.xib */; };
 		535211D7281214B70096FF57 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535211D6281214B70096FF57 /* UIColorExtension.swift */; };
+		539346EB2817395F002AED40 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539346EA2817395F002AED40 /* CoreDataManager.swift */; };
 		53DCE32B2814402E006B1CE0 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE3292814402E006B1CE0 /* MovieCell.swift */; };
 		53DCE32C2814402E006B1CE0 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53DCE32A2814402E006B1CE0 /* MovieCell.xib */; };
 		53DCE32E281452EA006B1CE0 /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53DCE32D281452EA006B1CE0 /* MoviesResponse.swift */; };
@@ -127,6 +128,7 @@
 		535211D228120F8A0096FF57 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		535211D328120F8A0096FF57 /* InfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoViewController.xib; sourceTree = "<group>"; };
 		535211D6281214B70096FF57 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		539346EA2817395F002AED40 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		53DCE3292814402E006B1CE0 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		53DCE32A2814402E006B1CE0 /* MovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
 		53DCE32D281452EA006B1CE0 /* MoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
@@ -206,13 +208,13 @@
 			isa = PBXGroup;
 			children = (
 				5352119A2811E2F00096FF57 /* API */,
+				539346E9281738EF002AED40 /* CoreData */,
 				5352119B2811E2F70096FF57 /* Modules */,
 				5352119C2811E3000096FF57 /* Resources */,
 				5352119D2811E3080096FF57 /* Utils */,
 				535211672811BD6C0096FF57 /* AppDelegate.swift */,
 				535211692811BD6C0096FF57 /* SceneDelegate.swift */,
 				535211782811BD6E0096FF57 /* Info.plist */,
-				535211702811BD6C0096FF57 /* Moview.xcdatamodeld */,
 			);
 			path = Moview;
 			sourceTree = "<group>";
@@ -387,6 +389,15 @@
 				535211D328120F8A0096FF57 /* InfoViewController.xib */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		539346E9281738EF002AED40 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				539346EA2817395F002AED40 /* CoreDataManager.swift */,
+				535211702811BD6C0096FF57 /* Moview.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		53DCE32828143FF7006B1CE0 /* MovieCell */ = {
@@ -595,6 +606,7 @@
 				535211B82812031F0096FF57 /* HomeConfiguration.swift in Sources */,
 				535211CC28120F590096FF57 /* FavoritesViewController.swift in Sources */,
 				535211BF2812031F0096FF57 /* HomeManager.swift in Sources */,
+				539346EB2817395F002AED40 /* CoreDataManager.swift in Sources */,
 				53DCE33A28145F10006B1CE0 /* NetworkManager.swift in Sources */,
 				53DCE35B28163FA3006B1CE0 /* EmptyCell.swift in Sources */,
 				53DCE34F2814E6CB006B1CE0 /* MovieDetailManager.swift in Sources */,
