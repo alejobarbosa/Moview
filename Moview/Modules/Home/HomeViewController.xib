@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Moview" customModuleProvider="target">
             <connections>
+                <outlet property="lblTitle" destination="prt-ju-5DW" id="aZO-tG-pkx"/>
                 <outlet property="tableViewMovies" destination="K1D-Dj-bYz" id="kDP-hu-ZvJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

@@ -15,6 +15,7 @@ protocol IHomeViewController: AnyObject {
 
 class HomeViewController: BaseViewController {
     
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tableViewMovies: UITableView!
     
 	var interactor: IHomeInteractor?
@@ -34,6 +35,7 @@ class HomeViewController: BaseViewController {
     }
     
     private func setUpViews(){
+        self.lblTitle.text = HomeModel.Texts.titleLabel
         self.tableViewMovies.delegate = self
         self.tableViewMovies.dataSource = self
         self.tableViewMovies.register(MovieCell.nib,

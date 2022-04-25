@@ -7,17 +7,9 @@
 
 import UIKit
 
-struct HomeModel {	
-	struct Request {
-		// do someting...
+struct HomeModel {
 
-		func parameters() -> [String: Any]? {
-			// do someting...
-			return nil
-		}
-	}
-
-	struct Response {
-		// do someting...
+	struct Texts {
+		static let titleLabel = "Get to know the most popular movies, and save the ones you like as favorites"
 	}
 }
