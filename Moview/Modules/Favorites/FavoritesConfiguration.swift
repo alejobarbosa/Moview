@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class FavoritesConfiguration {
-    static func setup(parameters: [String: Any] = [:]) -> UIViewController {
+    static func setup() -> UIViewController {
         let controller = FavoritesViewController()
         let router = FavoritesRouter(view: controller)
         let presenter = FavoritesPresenter(view: controller)
@@ -18,7 +18,6 @@ class FavoritesConfiguration {
         
         controller.interactor = interactor
         controller.router = router
-        interactor.parameters = parameters
         return controller
     }
 }

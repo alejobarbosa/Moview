@@ -8,7 +8,7 @@
 import UIKit
 
 protocol IFavoritesRouter: AnyObject {
-	// do someting...
+    func navigateToDetail(movieCD: MovieCD)
 }
 
 class FavoritesRouter: IFavoritesRouter {	
@@ -17,4 +17,9 @@ class FavoritesRouter: IFavoritesRouter {
 	init(view: FavoritesViewController?) {
 		self.view = view
 	}
+    
+    func navigateToDetail(movieCD: MovieCD){
+        let vc = MovieDetailConfiguration.setup(movie: nil, movieCD: movieCD)
+        self.view?.navigationController?.pushViewController(vc, animated: true)
+    }
 }

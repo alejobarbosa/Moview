@@ -7,8 +7,8 @@
 
 import UIKit
 
-protocol IFavoritesPresenter: class {
-	// do someting...
+protocol IFavoritesPresenter: AnyObject {
+	func reloadTableView()
 }
 
 class FavoritesPresenter: IFavoritesPresenter {	
@@ -17,4 +17,8 @@ class FavoritesPresenter: IFavoritesPresenter {
 	init(view: IFavoritesViewController?) {
 		self.view = view
 	}
+    
+    func reloadTableView() {
+        self.view?.reloadTableView()
+    }
 }

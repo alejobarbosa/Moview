@@ -7,17 +7,9 @@
 
 import UIKit
 
-struct FavoritesModel {	
-	struct Request {
-		// do someting...
+struct FavoritesModel {
 
-		func parameters() -> [String: Any]? {
-			// do someting...
-			return nil
-		}
-	}
-
-	struct Response {
-		// do someting...
+	struct Texts {
+		static let cellDescription = "When you watch a movie you like, you can save it by clicking on the heart icon "
 	}
 }

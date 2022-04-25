@@ -63,19 +63,30 @@ class MovieDetailViewController: BaseViewController {
         guard let interactor = self.interactor else {
             return
         }
-        if let posterPaht = interactor.movie.posterPath {
-            let urlString = ServicesConstants.URL().getImageBaseURL() + posterPaht
-            self.imgPoster.loadFromURL(urlString)
+        if let movieCD = interactor.movieCD {
+            if let posterPaht = movieCD.posterPath {
+                let urlString = ServicesConstants.URL().getImageBaseURL() + posterPaht
+                self.imgPoster.loadFromURL(urlString)
+            }
+            self.imgFav.image = UIImage(named: Constants.Images.icFavRed)
+            self.lblTitle.text = movieCD.title
+            self.lblRating.text = movieCD.voteAverage.description
+        } else {
+            if let posterPaht = interactor.movie.posterPath {
+                let urlString = ServicesConstants.URL().getImageBaseURL() + posterPaht
+                self.imgPoster.loadFromURL(urlString)
+            }
+            self.imgFav.image = interactor.movie.isFav ?
+                                        UIImage(named: Constants.Images.icFavRed) :
+                                        UIImage(named: Constants.Images.icFavBlack)
+            self.lblTitle.text = interactor.movie.title
+            self.lblRating.text = interactor.movie.voteAverage?.description
         }
-        self.imgFav.image = interactor.movie.isFav ?
-                                    UIImage(named: Constants.Images.icFavRed) :
-                                    UIImage(named: Constants.Images.icFavBlack)
-        self.lblTitle.text = interactor.movie.title
-        self.lblRating.text = interactor.movie.voteAverage?.description
+       
     }
     
     @IBAction func onFavClcik(_ sender: Any) {
-        let isFav = self.interactor?.movie.isFav ?? false
+        let isFav = interactor?.movieCD != nil ? true : self.interactor?.movie.isFav ?? false
         self.imgFav.image = isFav ? UIImage(named: Constants.Images.icFavBlack) :
                                     UIImage(named: Constants.Images.icFavRed)
         if isFav {

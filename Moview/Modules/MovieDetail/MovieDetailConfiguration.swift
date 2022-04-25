@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class MovieDetailConfiguration {
-    static func setup(movie: Movie) -> UIViewController {
+    static func setup(movie: Movie?, movieCD: MovieCD? = nil) -> UIViewController {
         let controller = MovieDetailViewController()
         let router = MovieDetailRouter(view: controller)
         let presenter = MovieDetailPresenter(view: controller)
@@ -19,6 +19,7 @@ class MovieDetailConfiguration {
         controller.interactor = interactor
         controller.router = router
         interactor.movie = movie
+        interactor.movieCD = movieCD
         return controller
     }
 }

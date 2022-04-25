@@ -24,10 +24,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9i-9g-jzn">
-                    <rect key="frame" x="0.0" y="44" width="375" height="80"/>
+                    <rect key="frame" x="0.0" y="44" width="375" height="100"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get to know the most popular movies, and save the ones you like as favorites" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prt-ju-5DW">
-                            <rect key="frame" x="37.666666666666657" y="7" width="300" height="66"/>
+                            <rect key="frame" x="37.666666666666657" y="17" width="300" height="66"/>
                             <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -37,12 +37,12 @@
                     <constraints>
                         <constraint firstItem="prt-ju-5DW" firstAttribute="centerY" secondItem="S9i-9g-jzn" secondAttribute="centerY" id="4SB-Ns-7Wk"/>
                         <constraint firstItem="prt-ju-5DW" firstAttribute="width" secondItem="S9i-9g-jzn" secondAttribute="width" multiplier="0.8" id="Fuy-Kj-rDf"/>
-                        <constraint firstAttribute="height" constant="80" id="GXg-QB-9iA"/>
+                        <constraint firstAttribute="height" constant="100" id="GXg-QB-9iA"/>
                         <constraint firstItem="prt-ju-5DW" firstAttribute="centerX" secondItem="S9i-9g-jzn" secondAttribute="centerX" id="o3O-Kr-8ir"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K1D-Dj-bYz">
-                    <rect key="frame" x="0.0" y="124" width="375" height="654"/>
+                    <rect key="frame" x="0.0" y="144" width="375" height="634"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
