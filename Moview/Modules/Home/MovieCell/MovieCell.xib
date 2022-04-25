@@ -30,7 +30,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlD-Zl-2yO">
                         <rect key="frame" x="18.5" y="15" width="333" height="170"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dHQ-ms-Ca6">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_empty" translatesAutoresizingMaskIntoConstraints="NO" id="dHQ-ms-Ca6">
                                 <rect key="frame" x="10" y="13" width="110.5" height="144.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dHQ-ms-Ca6" secondAttribute="height" multiplier="55:72" id="NSX-Xg-nCU"/>
@@ -156,5 +156,6 @@
     <resources>
         <image name="ic_fav_black" width="32" height="32"/>
         <image name="ic_star" width="32" height="32"/>
+        <image name="img_empty" width="64" height="64"/>
     </resources>
 </document>
