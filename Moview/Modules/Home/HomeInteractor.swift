@@ -11,7 +11,8 @@ import os.log
 protocol IHomeInteractor {
     func getPopularMovies()
     func getMoreMovies()
-    func saveFavorite(movie: Movie)
+    func saveFavorite(movie: Movie, index: Int)
+    func removeFavorite(id: Int)
     var isNewCall: Bool { get set }
     var movies: [Movie] { get set }
 }
@@ -24,12 +25,15 @@ class HomeInteractor: IHomeInteractor {
     var page: Int = 1
     var isNewCall: Bool = true
     var isLoading: Bool = false
+    var favoritesMovies: [MovieCD] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     init(presenter: IHomePresenter, manager: IHomeManager) {
     	self.presenter = presenter
     	self.manager = manager
     }
     
+    //MARK: Get popular movies service
     func getPopularMovies(){
         self.manager?.getPopularMovies(page: self.page,
                                        handler: {[weak self] (response) in
@@ -39,10 +43,11 @@ class HomeInteractor: IHomeInteractor {
                     self?.totalPages = moviesResponse.totalPages ?? 1
                     if (self?.isNewCall ?? true) {
                         self?.movies = moviesResponse.results ?? [Movie]()
+                        self?.fetchFavorites()
                     } else {
                         self?.movies.append(contentsOf: moviesResponse.results ?? [Movie]())
+                        self?.updateMovies()
                     }
-                    self?.presenter?.showData()
                     self?.isLoading = false
                     Logger.searchProductSuccess.info("Showing popular movies successfully")
                 }
@@ -60,8 +65,64 @@ class HomeInteractor: IHomeInteractor {
         })
     }
     
-    func saveFavorite(movie: Movie){
-        
+    //MARK: Save Favorite Movie
+    func saveFavorite(movie: Movie, index: Int){
+        let movieCD = MovieCD(context: self.context)
+        movieCD.id = Int32(movie.id ?? 0)
+        movieCD.overview = movie.overview
+        movieCD.posterPath = movie.posterPath
+        movieCD.releaseDate = movie.releaseDate
+        movieCD.title = movie.title
+        movieCD.voteAverage = movie.voteAverage ?? 0.0
+        do {
+            try self.context.save()
+            self.favoritesMovies.append(movieCD)
+            self.movies[index].isFav = true
+        } catch {
+//            Logger.
+        }
+    }
+    
+    //MARK: Remove Favorite Movie
+    func removeFavorite(id: Int){
+        if let movieToRemove = self.favoritesMovies.filter({$0.id == id}).first {
+            self.context.delete(movieToRemove)
+            do {
+                try self.context.save()
+                if let index = self.favoritesMovies.firstIndex(of: movieToRemove){
+                    self.favoritesMovies.remove(at: index)
+                    for (index, i) in self.movies.enumerated() where i.id == id{
+                        self.movies[index].isFav = false
+                    }
+                }
+            } catch {
+                
+            }
+        }
+    }
+    
+    //MARK: Fetch Favorites Movies
+    private func fetchFavorites(){
+        do {
+            self.favoritesMovies = try context.fetch(MovieCD.fetchRequest())
+            self.updateMovies()
+        } catch {
+            DispatchQueue.main.async {
+                self.presenter?.showData()
+            }
+        }
+    }
+    
+    //MARK: Update Movies
+    private func updateMovies(){
+        for (index, i) in self.movies.enumerated() {
+            if !(self.favoritesMovies.filter({$0.id == i.id ?? -1}).isEmpty){
+                self.movies[index].isFav = true
+            }
+        }
+        DispatchQueue.main.async {
+            self.presenter?.showData()
+        }
     }
     
     //MARK: Service Get More Products

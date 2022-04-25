@@ -13,6 +13,7 @@ struct MovieDetailModel {
         static let date = "Date: "
         static let duration = "Duration: "
         static let genres = "Genres: "
+        static let originalTitle = " (original title)"
         static let trailer = "Trailer"
         static let youtube = "YouTube"
         static let watchOn = "Watch on:"

@@ -22,4 +22,7 @@ extension Logger {
     static let searchProductError = Logger(subsystem: subsystem, category: Constants.LoggerCategories.getPopularMovies)
     static let searchProductSuccess = Logger(subsystem: subsystem, category: Constants.LoggerCategories.getPopularMovies)
     
+    ///Logs to core data
+//    static let fetchDataError = Logger(subsystem: subsystem, category: <#T##String#>)
+    
 }

@@ -331,13 +331,13 @@
 			children = (
 				53DCE32828143FF7006B1CE0 /* MovieCell */,
 				535211B02812031E0096FF57 /* HomeConfiguration.swift */,
+				535211B42812031F0096FF57 /* HomeInteractor.swift */,
+				535211B72812031F0096FF57 /* HomeManager.swift */,
+				535211B52812031F0096FF57 /* HomeModel.swift */,
 				535211B12812031F0096FF57 /* HomePresenter.swift */,
 				535211B22812031F0096FF57 /* HomeRouter.swift */,
 				535211B32812031F0096FF57 /* HomeViewController.swift */,
-				535211B42812031F0096FF57 /* HomeInteractor.swift */,
-				535211B52812031F0096FF57 /* HomeModel.swift */,
 				535211B62812031F0096FF57 /* HomeViewController.xib */,
-				535211B72812031F0096FF57 /* HomeManager.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -355,13 +355,13 @@
 			isa = PBXGroup;
 			children = (
 				535211C128120F590096FF57 /* FavoritesConfiguration.swift */,
+				535211C528120F590096FF57 /* FavoritesInteractor.swift */,
+				535211C828120F590096FF57 /* FavoritesManager.swift */,
+				535211C628120F590096FF57 /* FavoritesModel.swift */,
 				535211C228120F590096FF57 /* FavoritesPresenter.swift */,
 				535211C328120F590096FF57 /* FavoritesRouter.swift */,
 				535211C428120F590096FF57 /* FavoritesViewController.swift */,
-				535211C528120F590096FF57 /* FavoritesInteractor.swift */,
-				535211C628120F590096FF57 /* FavoritesModel.swift */,
 				535211C728120F590096FF57 /* FavoritesViewController.xib */,
-				535211C828120F590096FF57 /* FavoritesManager.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -764,6 +764,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -771,7 +772,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CondorLabs.Moview;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.moview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -791,6 +792,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -798,7 +800,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CondorLabs.Moview;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.moview;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

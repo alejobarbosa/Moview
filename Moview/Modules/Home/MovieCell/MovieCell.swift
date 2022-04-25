@@ -20,6 +20,7 @@ class MovieCell: UITableViewCell {
     static let height:CGFloat = 200
     var movie: Movie!
     var callbackFavClick: ((Movie) -> ())!
+    var isFav = false
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,20 +28,24 @@ class MovieCell: UITableViewCell {
         self.imgPoster.layer.cornerRadius = 10
     }
     
-    func setData(movie: Movie, isFav: Bool){
+    func setData(movie: Movie){
         self.movie = movie
         if let posterPaht = movie.posterPath {
             let urlString = ServicesConstants.URL().getImageBaseURL() + posterPaht
             self.imgPoster.loadFromURL(urlString)
         }
         self.lblTitle.text = movie.title
-        self.imgFav.image = isFav ? UIImage(named: "ic_fav_red") : UIImage(named: "ic_fav_black")
+        self.isFav = movie.isFav
+        self.imgFav.image = movie.isFav ? UIImage(named: "ic_fav_red") : UIImage(named: "ic_fav_black")
         self.lblRating.text = movie.voteAverage?.description
         self.lblDate.text = movie.releaseDate
         self.lblDescription.text = movie.overview
     }
     
     @IBAction func onFavClick(_ sender: Any) {
+        self.isFav = self.isFav ? false : true
+        self.movie.isFav = self.isFav
+        self.imgFav.image = self.isFav ? UIImage(named: "ic_fav_red") : UIImage(named: "ic_fav_black")
         self.callbackFavClick(self.movie)
     }
     

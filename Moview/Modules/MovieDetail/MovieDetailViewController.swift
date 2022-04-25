@@ -97,7 +97,7 @@ extension MovieDetailViewController: IMovieDetailViewController {
     func showData(){
         guard let movieDetail = self.interactor?.movieDetail else { return }
         self.lblTitle.text = movieDetail.title
-        self.lblOriginalTitle.text = movieDetail.originalTitle
+        self.lblOriginalTitle.text = movieDetail.originalTitle ?? "" + MovieDetailModel.Texts.originalTitle
         self.lblRating.text = movieDetail.voteAverage?.description
         let dateText = (movieDetail.releaseDate?.isEmpty ?? true) ? "" : MovieDetailModel.Texts.date
         self.lblDateText.text = dateText

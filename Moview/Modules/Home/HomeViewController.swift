@@ -54,6 +54,10 @@ extension HomeViewController: IHomeViewController {
         self.showActivityIndicator(show: false)
         self.tableViewMovies.reloadData()
     }
+    
+    func hideProgress(){
+        self.showActivityIndicator(show: false)
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -66,9 +70,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier,
                                                     for: indexPath) as? MovieCell,
            let movies = interactor?.movies {
-            cell.setData(movie: movies[indexPath.row], isFav: false)
+            cell.setData(movie: movies[indexPath.row])
             cell.callbackFavClick = { movie in
-                self.interactor?.saveFavorite(movie: movie)
+                if movie.isFav {
+                    self.interactor?.saveFavorite(movie: movie, index: indexPath.row)
+                } else {
+                    self.interactor?.removeFavorite(id: movie.id ?? 0)
+                }
             }
             return cell
         }

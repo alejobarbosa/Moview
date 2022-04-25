@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Moview" customModuleProvider="target">
             <connections>
@@ -15,11 +20,29 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9i-9g-jzn">
+                    <rect key="frame" x="0.0" y="44" width="375" height="80"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get to know the most popular movies, and save the ones you like as favorites" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prt-ju-5DW">
+                            <rect key="frame" x="37.666666666666657" y="7" width="300" height="66"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="prt-ju-5DW" firstAttribute="centerY" secondItem="S9i-9g-jzn" secondAttribute="centerY" id="4SB-Ns-7Wk"/>
+                        <constraint firstItem="prt-ju-5DW" firstAttribute="width" secondItem="S9i-9g-jzn" secondAttribute="width" multiplier="0.8" id="Fuy-Kj-rDf"/>
+                        <constraint firstAttribute="height" constant="80" id="GXg-QB-9iA"/>
+                        <constraint firstItem="prt-ju-5DW" firstAttribute="centerX" secondItem="S9i-9g-jzn" secondAttribute="centerX" id="o3O-Kr-8ir"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K1D-Dj-bYz">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="124" width="375" height="654"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
@@ -27,9 +50,12 @@
             <color key="backgroundColor" red="0.12156862745098039" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="K1D-Dj-bYz" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="2V4-Aa-H7R"/>
-                <constraint firstItem="K1D-Dj-bYz" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Lhj-e3-n0u"/>
-                <constraint firstItem="K1D-Dj-bYz" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="Ono-ad-jch"/>
+                <constraint firstItem="S9i-9g-jzn" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="NZD-7k-s5V"/>
                 <constraint firstItem="K1D-Dj-bYz" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Rde-U9-64Z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="K1D-Dj-bYz" secondAttribute="bottom" id="g1t-0V-HIT"/>
+                <constraint firstItem="S9i-9g-jzn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="jZl-EH-BNU"/>
+                <constraint firstItem="K1D-Dj-bYz" firstAttribute="top" secondItem="S9i-9g-jzn" secondAttribute="bottom" id="r53-gZ-eoq"/>
+                <constraint firstItem="S9i-9g-jzn" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="xhg-UR-P5H"/>
             </constraints>
             <point key="canvasLocation" x="138" y="104"/>
         </view>
