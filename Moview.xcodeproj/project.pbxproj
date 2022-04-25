@@ -270,6 +270,7 @@
 		5352119D2811E3080096FF57 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				53DCE3642816E8C9006B1CE0 /* Logger */,
 				535211A42811E3BE0096FF57 /* Constants */,
 				535211A52811E3C70096FF57 /* Extensions */,
 			);
@@ -428,6 +429,13 @@
 				53DCE3612816580C006B1CE0 /* InfoCell.xib */,
 			);
 			path = InfoCell;
+			sourceTree = "<group>";
+		};
+		53DCE3642816E8C9006B1CE0 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

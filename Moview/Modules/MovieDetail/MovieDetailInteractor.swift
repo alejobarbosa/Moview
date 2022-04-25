@@ -3,7 +3,7 @@
 //  Moview
 //
 //  Created by Luis Alejandro Barbosa Lee on 23/04/22.
-//  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
+//  Copyright (c) 2022 Luis Alejandro Barbosa Lee. All rights reserved.
 
 import UIKit
 import os.log
@@ -45,14 +45,14 @@ class MovieDetailInteractor: IMovieDetailInteractor {
                     self?.movieDetail = movieDetail
                     self?.presenter?.showData()
                     self?.getVideos()
-                    Logger.searchProductSuccess.info("Showing movie detail successfully")
+                    Logger.getMovieDetailSuccess.info("Showing movie detail successfully")
                 }
                 break
                 
             case .failure(let error):
                 DispatchQueue.main.async {
                     self?.presenter?.showError(message: self?.getErrorMessage(error: error) ?? "")
-                    Logger.searchProductError.error("Error showing movie detail")
+                    Logger.getMovieDetailError.error("Error showing movie detail")
                 }
 
                 break
@@ -71,14 +71,14 @@ class MovieDetailInteractor: IMovieDetailInteractor {
                     let video = videosResponse.results?.filter({$0.site == MovieDetailModel.Texts.youtube})
                     self?.trailer = video?.filter({$0.type == MovieDetailModel.Texts.trailer}).first
                     self?.presenter?.showTrailer()
-                    Logger.searchProductSuccess.info("Showing videos successfully")
+                    Logger.getMovieVideosSuccess.info("Showing videos successfully")
                 }
                 break
                 
             case .failure:
                 DispatchQueue.main.async {
                     self?.presenter?.hideProgress()
-                    Logger.searchProductError.error("Error showing videos")
+                    Logger.getMovieVideosError.error("Error showing videos")
                 }
 
                 break
@@ -90,7 +90,9 @@ class MovieDetailInteractor: IMovieDetailInteractor {
     private func fetchFavorites(){
         do {
             self.favoritesMovies = try context.fetch(MovieCD.fetchRequest())
+            Logger.fetchDataCDSuccess.info("Fetch movies from Core Data")
         } catch {
+            Logger.fetchDataCDError.error("Error fetching movies from Core Data")
         }
     }
     
@@ -109,8 +111,9 @@ class MovieDetailInteractor: IMovieDetailInteractor {
             if self.movie != nil {
                 self.movie.isFav = true
             }
+            Logger.saveDataCDSuccess.info("Save movie in Core Data")
         } catch {
-//            Logger.
+            Logger.saveDataCDError.error("Error saving movie in Core Data")
         }
     }
     
@@ -126,8 +129,9 @@ class MovieDetailInteractor: IMovieDetailInteractor {
                         self.movie.isFav = false
                     }
                 }
+                Logger.removeDataCDSuccess.info("Remove movie from Core Data")
             } catch {
-                
+                Logger.saveDataCDError.error("Error removing movie from Core Data")
             }
         }
     }

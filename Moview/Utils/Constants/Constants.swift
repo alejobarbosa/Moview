@@ -37,8 +37,15 @@ struct Constants {
         static let buildURL = "buildURL"
         static let dataError = "dataError"
         
-        ///Categorie to popular moviesservice
+        ///Categories to  movies services
         static let getPopularMovies = "getPopularMovies"
+        static let getMovieDetail = "getMovieDetail"
+        static let getMovieVideos = "getMovieVideos"
+        
+        ///Categories to Core Data
+        static let fetchDataCD = "fetchDataCD"
+        static let saveDataCD = "saveDataCD"
+        static let removeDataCD = "removeDataCD"
         
     }
     

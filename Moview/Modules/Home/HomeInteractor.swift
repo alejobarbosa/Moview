@@ -3,7 +3,7 @@
 //  Moview
 //
 //  Created by Luis Alejandro Barbosa Lee on 21/04/22.
-//  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
+//  Copyright (c) 2022 Luis Alejandro Barbosa Lee. All rights reserved.
 
 import UIKit
 import os.log
@@ -49,7 +49,7 @@ class HomeInteractor: IHomeInteractor {
                         self?.updateMovies()
                     }
                     self?.isLoading = false
-                    Logger.searchProductSuccess.info("Showing popular movies successfully")
+                    Logger.getMoviesSuccess.info("Showing popular movies successfully")
                 }
                 break
                 
@@ -57,12 +57,38 @@ class HomeInteractor: IHomeInteractor {
                 DispatchQueue.main.async {
                     self?.presenter?.showError(message: self?.getErrorMessage(error: error) ?? "")
                     self?.isLoading = false
-                    Logger.searchProductError.error("Error showing popular movies")
+                    Logger.getMoviesError.error("Error showing popular movies")
                 }
 
                 break
             }
         })
+    }
+    
+    //MARK: Fetch Favorites Movies
+    private func fetchFavorites(){
+        do {
+            self.favoritesMovies = try context.fetch(MovieCD.fetchRequest())
+            self.updateMovies()
+            Logger.fetchDataCDSuccess.info("Fetch movies from Core Data")
+        } catch {
+            DispatchQueue.main.async {
+                self.presenter?.showData()
+            }
+            Logger.fetchDataCDError.error("Error fetching movies from Core Data")
+        }
+    }
+    
+    //MARK: Update Movies
+    private func updateMovies(){
+        for (index, i) in self.movies.enumerated() {
+            if !(self.favoritesMovies.filter({$0.id == i.id ?? -1}).isEmpty){
+                self.movies[index].isFav = true
+            }
+        }
+        DispatchQueue.main.async {
+            self.presenter?.showData()
+        }
     }
     
     //MARK: Save Favorite Movie
@@ -78,8 +104,9 @@ class HomeInteractor: IHomeInteractor {
             try self.context.save()
             self.favoritesMovies.append(movieCD)
             self.movies[index].isFav = true
+            Logger.saveDataCDSuccess.info("Save movie in Core Data")
         } catch {
-//            Logger.
+            Logger.saveDataCDError.error("Error saving movie in Core Data")
         }
     }
     
@@ -95,33 +122,10 @@ class HomeInteractor: IHomeInteractor {
                         self.movies[index].isFav = false
                     }
                 }
+                Logger.removeDataCDSuccess.info("Remove movie from Core Data")
             } catch {
-                
+                Logger.saveDataCDError.error("Error removing movie from Core Data")
             }
-        }
-    }
-    
-    //MARK: Fetch Favorites Movies
-    private func fetchFavorites(){
-        do {
-            self.favoritesMovies = try context.fetch(MovieCD.fetchRequest())
-            self.updateMovies()
-        } catch {
-            DispatchQueue.main.async {
-                self.presenter?.showData()
-            }
-        }
-    }
-    
-    //MARK: Update Movies
-    private func updateMovies(){
-        for (index, i) in self.movies.enumerated() {
-            if !(self.favoritesMovies.filter({$0.id == i.id ?? -1}).isEmpty){
-                self.movies[index].isFav = true
-            }
-        }
-        DispatchQueue.main.async {
-            self.presenter?.showData()
         }
     }
     

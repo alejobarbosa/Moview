@@ -3,9 +3,10 @@
 //  Moview
 //
 //  Created by Luis Alejandro Barbosa Lee on 21/04/22.
-//  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
+//  Copyright (c) 2022 Luis Alejandro Barbosa Lee. All rights reserved.
 
 import UIKit
+import os.log
 
 protocol IFavoritesInteractor: AnyObject {
 	var movies: [MovieCD]! { get set }
@@ -26,6 +27,16 @@ class FavoritesInteractor: IFavoritesInteractor {
         self.fetchFavorites()
     }
     
+    //MARK: Fetch Favorites Movies
+    func fetchFavorites(){
+        do {
+            self.movies = try context.fetch(MovieCD.fetchRequest())
+            Logger.fetchDataCDSuccess.info("Fetch movies from Core Data")
+        } catch {
+            Logger.fetchDataCDError.error("Error fetching movies from Core Data")
+        }
+    }
+    
     //MARK: Remove Favorite Movie
     func removeFavorite(id: Int){
         if let movieToRemove = self.movies.filter({$0.id == id}).first {
@@ -39,15 +50,6 @@ class FavoritesInteractor: IFavoritesInteractor {
             } catch {
                 
             }
-        }
-    }
-    
-    //MARK: Fetch Favorites Movies
-    func fetchFavorites(){
-        do {
-            self.movies = try context.fetch(MovieCD.fetchRequest())
-        } catch {
-            
         }
     }
     

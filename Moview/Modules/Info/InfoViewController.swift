@@ -25,6 +25,7 @@ class InfoViewController: BaseViewController {
         self.tableInfo.dataSource = self
         self.tableInfo.register(InfoCell.nib,
                                 forCellReuseIdentifier: InfoCell.identifier)
+        self.tableInfo.isScrollEnabled = false
         self.tableInfo.reloadData()
     }
 
