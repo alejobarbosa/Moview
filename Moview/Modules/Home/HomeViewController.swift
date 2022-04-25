@@ -28,6 +28,7 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showActivityIndicator(show: true)
+        self.interactor?.isNewCall = true
         self.interactor?.getPopularMovies()
         self.navigationController?.navigationBar.isHidden = true
     }
@@ -39,6 +40,10 @@ class HomeViewController: BaseViewController {
                                         forCellReuseIdentifier: MovieCell.identifier)
         self.tableViewMovies.separatorStyle = .none
     }
+    
+    func scrollTop(){
+        self.tableViewMovies.setContentOffset(.init(), animated:true)
+    }
 }
 
 extension HomeViewController: IHomeViewController {
@@ -48,9 +53,6 @@ extension HomeViewController: IHomeViewController {
     }
     
     func showData(){
-        if (self.interactor?.isNewCall ?? true) {
-            self.tableViewMovies.setContentOffset(.init(), animated:true)
-        }
         self.showActivityIndicator(show: false)
         self.tableViewMovies.reloadData()
     }

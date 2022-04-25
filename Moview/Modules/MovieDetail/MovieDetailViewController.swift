@@ -67,21 +67,31 @@ class MovieDetailViewController: BaseViewController {
             let urlString = ServicesConstants.URL().getImageBaseURL() + posterPaht
             self.imgPoster.loadFromURL(urlString)
         }
-        self.imgFav.image = interactor.isFavorite ?? false ?
+        self.imgFav.image = interactor.movie.isFav ?
                                     UIImage(named: Constants.Images.icFavRed) :
                                     UIImage(named: Constants.Images.icFavBlack)
         self.lblTitle.text = interactor.movie.title
         self.lblRating.text = interactor.movie.voteAverage?.description
     }
     
+    @IBAction func onFavClcik(_ sender: Any) {
+        let isFav = self.interactor?.movie.isFav ?? false
+        self.imgFav.image = isFav ? UIImage(named: Constants.Images.icFavBlack) :
+                                    UIImage(named: Constants.Images.icFavRed)
+        if isFav {
+            self.interactor?.removeFavorite()
+        } else {
+            self.interactor?.saveFavorite()
+        }
+    }
+    
+    //MARK:
     @IBAction func onTrailerClick(_ sender: Any) {
-        print("Click Tailer")
         let urlString = ServicesConstants.URL().getYoutubeBaseURL() + self.trailerKey
         self.router?.openLink(urlString)
     }
     
     @IBAction func onIMDbClick(_ sender: Any) {
-        print("Click IMDb")
         let urlString = ServicesConstants.URL().getIMDbBaseURL() + (self.interactor?.movieDetail?.imdbID ?? "")
         self.router?.openLink(urlString)
     }

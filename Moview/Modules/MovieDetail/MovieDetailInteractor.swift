@@ -10,10 +10,11 @@ import os.log
 
 protocol IMovieDetailInteractor: AnyObject {
 	var movie: Movie! { get set }
-    var isFavorite: Bool! { get set }
     var movieDetail: MovieDetail? { get set }
     var trailer: Video? { get set }
     func getMovieDetail()
+    func saveFavorite()
+    func removeFavorite()
 }
 
 class MovieDetailInteractor: IMovieDetailInteractor {
@@ -22,11 +23,13 @@ class MovieDetailInteractor: IMovieDetailInteractor {
     var movie: Movie!
     var movieDetail: MovieDetail?
     var trailer: Video?
-    var isFavorite: Bool! = false
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var favoritesMovies: [MovieCD] = []
 
     init(presenter: IMovieDetailPresenter, manager: IMovieDetailManager) {
     	self.presenter = presenter
     	self.manager = manager
+        self.fetchFavorites()
     }
     
     //MARK: Get Movie Detail
@@ -54,6 +57,7 @@ class MovieDetailInteractor: IMovieDetailInteractor {
         })
     }
     
+    //MARK: Get Movie Videos
     private func getVideos(){
         self.manager?.getVideos(id: String(self.movie.id ?? 0),
                                 handler: {[weak self] (response) in
@@ -78,9 +82,46 @@ class MovieDetailInteractor: IMovieDetailInteractor {
         })
     }
     
-    //MARK: Save Favorite
-    func saveFavorite(movie: Movie){
-        
+    //MARK: Fetch Favorites Movies
+    private func fetchFavorites(){
+        do {
+            self.favoritesMovies = try context.fetch(MovieCD.fetchRequest())
+        } catch {
+        }
+    }
+    
+    //MARK: Save Favorite Movie
+    func saveFavorite(){
+        let movieCD = MovieCD(context: self.context)
+        movieCD.id = Int32(movie.id ?? 0)
+        movieCD.overview = movie.overview
+        movieCD.posterPath = movie.posterPath
+        movieCD.releaseDate = movie.releaseDate
+        movieCD.title = movie.title
+        movieCD.voteAverage = movie.voteAverage ?? 0.0
+        do {
+            try self.context.save()
+            self.favoritesMovies.append(movieCD)
+            self.movie.isFav = true
+        } catch {
+//            Logger.
+        }
+    }
+    
+    //MARK: Remove Favorite Movie
+    func removeFavorite(){
+        if let movieToRemove = self.favoritesMovies.filter({$0.id == movie.id ?? 0}).first {
+            self.context.delete(movieToRemove)
+            do {
+                try self.context.save()
+                if let index = self.favoritesMovies.firstIndex(of: movieToRemove){
+                    self.favoritesMovies.remove(at: index)
+                    self.movie.isFav = false
+                }
+            } catch {
+                
+            }
+        }
     }
     
     //MARK: Error Message

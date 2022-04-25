@@ -15,7 +15,7 @@ class TabBarViewController: UITabBarController {
         overrideUserInterfaceStyle = .dark
     }
     
-    ///Method to set the viewcontrollers to the tabbar
+    ///Method to set the viewc ontrollers to the tabbar
     private func setUpViewControllers(){
         let home = HomeConfiguration.setup()
         home.tabBarItem = UITabBarItem(title: Constants.Titles.homeVC,
@@ -25,13 +25,28 @@ class TabBarViewController: UITabBarController {
         
         favorites.tabBarItem = UITabBarItem(title: Constants.Titles.favoritesVC,
                                             image: UIImage(named: Constants.Images.icFavWhite),
-                                            tag: 0)
+                                            tag: 1)
         let info = InfoViewController()
         info.tabBarItem = UITabBarItem(title: Constants.Titles.infoVC,
                                        image: UIImage(named: Constants.Images.icInfoWhite),
-                                       tag: 0)
+                                       tag: 2)
         let views = [home, favorites, info]
         self.viewControllers = views
+    }
+    
+    
+    ///Scroll to the top of table view
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let viewControllers = self.viewControllers else { return }
+        if self.selectedViewController is HomeViewController && item.tag == 0 {
+            for vc in viewControllers where vc is HomeViewController{
+                (vc as! HomeViewController).scrollTop()
+            }
+        } else if self.selectedViewController is FavoritesViewController && item.tag == 1 {
+            for vc in viewControllers where vc is FavoritesViewController{
+//                (vc as! FavoritesViewController).scrollTop()
+            }
+        }
     }
 
 
