@@ -1,0 +1,137 @@
+{
+   "id":414906,
+   "results":[
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"The Batman Chases The Penguin | The Batman | HBO Max",
+         "key":"iA_wCcG-dQQ",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Clip",
+         "official":true,
+         "published_at":"2022-04-23T20:00:10.000Z",
+         "id":"62646a44e329430066cf7f1b"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"The Batman | Opening Scene | HBO Max",
+         "key":"761uRaAoW00",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Clip",
+         "official":true,
+         "published_at":"2022-04-18T16:00:10.000Z",
+         "id":"6260ae6e3d745415a41338e8"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"Full Movie Preview",
+         "key":"2aHesYuFitU",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Clip",
+         "official":true,
+         "published_at":"2022-04-18T14:59:50.000Z",
+         "id":"625d80d9f10a1a31bf58a624"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"Official HBO Max Trailer",
+         "key":"vc7_mH2PWHs",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Trailer",
+         "official":true,
+         "published_at":"2022-04-12T21:00:54.000Z",
+         "id":"6255e9b7cd2f0f006444d1dc"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"Little Caesars Sneak Peek",
+         "key":"FqnbVhfniys",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Featurette",
+         "official":false,
+         "published_at":"2022-02-18T16:00:04.000Z",
+         "id":"6227032c2f1be00068fa6e81"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"Funeral Scene",
+         "key":"Jtdh0Tkqfdw",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Clip",
+         "official":true,
+         "published_at":"2022-01-30T20:45:03.000Z",
+         "id":"61f72df8d7cd06011e7c476c"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"The Bat and The Cat Trailer",
+         "key":"u34gHaRiBIU",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Trailer",
+         "official":true,
+         "published_at":"2021-12-27T18:00:27.000Z",
+         "id":"61ca0378b0422800613dc85f"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"TV Spot",
+         "key":"NrJRE678TiU",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Teaser",
+         "official":true,
+         "published_at":"2021-10-17T23:10:56.000Z",
+         "id":"61b6f96ec616ac009a10559a"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"Main Trailer",
+         "key":"mqqft2x_Aa4",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Trailer",
+         "official":true,
+         "published_at":"2021-10-16T20:36:30.000Z",
+         "id":"616b3875e004a6005f0676c4"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"DC FanDome Teaser",
+         "key":"NLOp_6uPccQ",
+         "site":"YouTube",
+         "size":1080,
+         "type":"Trailer",
+         "official":true,
+         "published_at":"2020-08-23T00:57:22.000Z",
+         "id":"5f41bf4d6a34480036b453da"
+      },
+      {
+         "iso_639_1":"en",
+         "iso_3166_1":"US",
+         "name":"Camera Test",
+         "key":"391277390",
+         "site":"Vimeo",
+         "size":1080,
+         "type":"Teaser",
+         "official":false,
+         "published_at":"2020-02-13T17:00:40.000Z",
+         "id":"5e45e3c09603310015f6454c"
+      }
+   ]
+}
