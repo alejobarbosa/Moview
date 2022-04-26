@@ -140,9 +140,14 @@ class HomeInteractor: IHomeInteractor {
     
     //MARK: Error Message
     func getErrorMessage(error: ErrorResponses) -> String {
-        if !error.localizedDescription.isEmpty {
-            return error.localizedDescription
+        var message = ""
+        switch error {
+        case .noInternet(let string):
+            message = string
+            break
+        default:
+            message = Constants.ErrorView.errorMessage
         }
-        return Constants.ErrorView.errorMessage
+        return message
     }
 }
