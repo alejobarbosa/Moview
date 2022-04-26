@@ -52,9 +52,9 @@ git clone https://github.com/alejobarbosa/Moview
 ### Unit Tests
 The unit tests for this application were added to the business rules containers, in this case the managers, covering 100% of each manager created.
 
-UI Tests |
+Unit Tests |
  | ------------- 
- <img width="375" alt="Captura de Pantalla 2022-04-26 a la(s) 10 50 39 a m" src="https://user-images.githubusercontent.com/33553510/165346420-6699db10-ff5a-45bf-89ed-818984b7ecf1.png">|
+ <img width="375" alt="Captura de Pantalla 2022-04-26 a la(s) 10 50 57 a m" src="https://user-images.githubusercontent.com/33553510/165350375-1b3b2897-1cb5-42fa-8499-dbdd6f73e29f.png">|
 
 Unit Tests Coverage |
  | ------------- 
