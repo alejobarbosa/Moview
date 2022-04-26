@@ -66,6 +66,7 @@ extension FavoritesViewController: UITableViewDelegate, UITableViewDataSource {
         if (self.interactor?.movies.isEmpty ?? true) {
             if let cell = tableView.dequeueReusableCell(withIdentifier: EmptyCell.identifier,
                                                         for: indexPath) as? EmptyCell {
+                cell.setData(text: FavoritesModel.Texts.cellDescription)
                 cell.isUserInteractionEnabled = false
                 return cell
             }

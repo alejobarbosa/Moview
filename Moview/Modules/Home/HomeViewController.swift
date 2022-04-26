@@ -40,6 +40,8 @@ class HomeViewController: BaseViewController {
         self.tableViewMovies.dataSource = self
         self.tableViewMovies.register(MovieCell.nib,
                                         forCellReuseIdentifier: MovieCell.identifier)
+        self.tableViewMovies.register(EmptyCell.nib,
+                                        forCellReuseIdentifier: EmptyCell.identifier)
         self.tableViewMovies.separatorStyle = .none
     }
     
@@ -67,28 +69,40 @@ extension HomeViewController: IHomeViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.interactor?.movies.count ?? 0
+        let count = (self.interactor?.movies.count ?? 0)
+        self.tableViewMovies.isScrollEnabled = count > 0
+        return count == 0 ? 1 : count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier,
-                                                    for: indexPath) as? MovieCell,
-           let movies = interactor?.movies {
-            cell.setData(movie: movies[indexPath.row])
-            cell.callbackFavClick = { movie in
-                if movie.isFav {
-                    self.interactor?.saveFavorite(movie: movie, index: indexPath.row)
-                } else {
-                    self.interactor?.removeFavorite(id: movie.id ?? 0)
-                }
+        if (self.interactor?.movies.isEmpty ?? true) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: EmptyCell.identifier,
+                                                        for: indexPath) as? EmptyCell {
+                cell.setData(text: HomeModel.Texts.emptyCellDescription)
+                cell.isUserInteractionEnabled = false
+                return cell
             }
-            return cell
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier,
+                                                        for: indexPath) as? MovieCell,
+               let movies = interactor?.movies {
+                cell.setData(movie: movies[indexPath.row])
+                cell.callbackFavClick = { movie in
+                    if movie.isFav {
+                        self.interactor?.saveFavorite(movie: movie, index: indexPath.row)
+                    } else {
+                        self.interactor?.removeFavorite(id: movie.id ?? 0)
+                    }
+                }
+                return cell
+            }
         }
         return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return MovieCell.height
+        let count = (self.interactor?.movies.count ?? 0)
+        return count == 0 ? UIScreen.main.bounds.height * 0.7 : MovieCell.height
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
