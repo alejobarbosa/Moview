@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="500" id="KGk-i7-Jjw" customClass="EmptyCell" customModule="Moview" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="500"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="368" height="500"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ea-HD-hkq">
+                        <rect key="frame" x="18.5" y="150" width="331" height="200"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_movie" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-5j-bYF">
+                                <rect key="frame" x="15" y="40" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Tr6-5j-bYF" secondAttribute="height" multiplier="1:1" id="qhV-5S-e8E"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When you watch a movie you like, you can save it by clicking on the heart icon " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8nt-ED-Qs5">
+                                <rect key="frame" x="150" y="51" width="166" height="98"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat Medium" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8nt-ED-Qs5" firstAttribute="leading" secondItem="Tr6-5j-bYF" secondAttribute="trailing" constant="15" id="0Xp-TD-sbu"/>
+                            <constraint firstAttribute="height" constant="200" id="IDW-W7-4D8"/>
+                            <constraint firstItem="Tr6-5j-bYF" firstAttribute="centerY" secondItem="1ea-HD-hkq" secondAttribute="centerY" id="LeK-Bc-3aw"/>
+                            <constraint firstItem="8nt-ED-Qs5" firstAttribute="centerY" secondItem="1ea-HD-hkq" secondAttribute="centerY" id="asF-RD-b4m"/>
+                            <constraint firstAttribute="trailing" secondItem="8nt-ED-Qs5" secondAttribute="trailing" constant="15" id="j80-iA-5dL"/>
+                            <constraint firstItem="Tr6-5j-bYF" firstAttribute="leading" secondItem="1ea-HD-hkq" secondAttribute="leading" constant="15" id="tmq-Ei-icL"/>
+                            <constraint firstItem="Tr6-5j-bYF" firstAttribute="height" secondItem="1ea-HD-hkq" secondAttribute="height" multiplier="0.6" id="wvF-na-ggo"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="1ea-HD-hkq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Oss-qu-FLQ"/>
+                    <constraint firstItem="1ea-HD-hkq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Pst-Yf-U2b"/>
+                    <constraint firstItem="1ea-HD-hkq" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="mhp-fc-fbe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="lblDescription" destination="8nt-ED-Qs5" id="xzY-91-oI4"/>
+                <outlet property="viewContent" destination="1ea-HD-hkq" id="yzt-z7-FLo"/>
+            </connections>
+            <point key="canvasLocation" x="172.46376811594203" y="184.48660714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="img_movie" width="64" height="64"/>
+    </resources>
+</document>
