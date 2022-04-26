@@ -50,15 +50,30 @@ class CoreDataManager {
     }
     
     //MARK: Remove Favorite Movie
-    func removeFavorite(movieCD: MovieCD, handler: @escaping (Bool) -> Void){
-        self.context.delete(movieCD)
-        do {
-            try self.context.save()
-            Logger.removeDataCDSuccess.info("Remove movie from Core Data")
-            handler(true)
-        } catch {
-            Logger.saveDataCDError.error("Error removing movie from Core Data")
-            handler(false)
+    func removeFavorite(id: Int, handler: @escaping (Bool) -> Void){
+        self.fetchFavorites { (response) in
+            switch response {
+            case .success(let moviesCD):
+                guard let index = moviesCD.firstIndex(where: {$0.id == id}) else {
+                    Logger.saveDataCDError.error("Error removing movie from Core Data. Movie doesn't exists")
+                    handler(false)
+                    return
+                }
+                self.context.delete(moviesCD[index])
+                do {
+                    try self.context.save()
+                    Logger.removeDataCDSuccess.info("Remove movie from Core Data")
+                    handler(true)
+                } catch {
+                    Logger.saveDataCDError.error("Error removing movie from Core Data")
+                    handler(false)
+                }
+                break
+            case .failure:
+                Logger.saveDataCDError.error("Error removing movie from Core Data")
+                handler(false)
+                break
+            }
         }
     }
     

@@ -13,7 +13,10 @@ class HomeConfiguration {
         let controller = HomeViewController()
         let router = HomeRouter(view: controller)
         let presenter = HomePresenter(view: controller)
-        let manager = HomeManager()
+        let comunicationManager = ComunicationManager()
+        let coreDataManager = CoreDataManager()
+        let manager = HomeManager(comunicationManager: comunicationManager,
+                                  coreDataManager: coreDataManager)
         let interactor = HomeInteractor(presenter: presenter, manager: manager)
         
         controller.interactor = interactor

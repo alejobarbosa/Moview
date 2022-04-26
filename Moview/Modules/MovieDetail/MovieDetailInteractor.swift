@@ -122,17 +122,16 @@ class MovieDetailInteractor: IMovieDetailInteractor {
     
     //MARK: Remove Favorite Movie
     func removeFavorite(){
-        if let movieToRemove = self.favoritesMovies.filter({$0.id == movieDetail?.id ?? 0}).first {
-            self.manager?.removeFavorite(movieCD: movieToRemove, handler: { [weak self] (success) in
-                if success,
-                   let index = self?.favoritesMovies.firstIndex(of: movieToRemove){
-                    self?.favoritesMovies.remove(at: index)
-                    if self?.movie != nil {
-                        self?.movie.isFav = false
-                    }
+        let id = movieDetail?.id ?? 0
+        self.manager?.removeFavorite(id: id, handler: { [weak self] (success) in
+            if success,
+               let index = self?.favoritesMovies.firstIndex(where: {$0.id == id}){
+                self?.favoritesMovies.remove(at: index)
+                if self?.movie != nil {
+                    self?.movie.isFav = false
                 }
-            })
-        }
+            }
+        })
     }
     
     //MARK: Error Message

@@ -117,16 +117,14 @@ class HomeInteractor: IHomeInteractor {
     
     //MARK: Remove Favorite Movie
     func removeFavorite(id: Int){
-        if let movieToRemove = self.favoritesMovies.filter({$0.id == id}).first {
-            self.manager?.removeFavorite(movieCD: movieToRemove, handler: { [weak self] (success) in
-                if success,
-                   let indexFav = self?.favoritesMovies.firstIndex(of: movieToRemove),
-                   let indexMovie = self?.movies.firstIndex(where: {$0.id == id}) {
-                    self?.favoritesMovies.remove(at: indexFav)
-                    self?.movies[indexMovie].isFav = false
-                }
-            })
-        }
+        self.manager?.removeFavorite(id: id, handler: { [weak self] (success) in
+            if success,
+               let indexFav = self?.favoritesMovies.firstIndex(where: {$0.id == id}),
+               let indexMovie = self?.movies.firstIndex(where: {$0.id == id}) {
+                self?.favoritesMovies.remove(at: indexFav)
+                self?.movies[indexMovie].isFav = false
+            }
+        })
     }
     
     //MARK: Service Get More Products

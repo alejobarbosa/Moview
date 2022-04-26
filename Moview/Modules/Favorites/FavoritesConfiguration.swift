@@ -13,7 +13,9 @@ class FavoritesConfiguration {
         let controller = FavoritesViewController()
         let router = FavoritesRouter(view: controller)
         let presenter = FavoritesPresenter(view: controller)
-        let manager = FavoritesManager()
+        let coreDataManager = CoreDataManager()
+        let comunicationManager = ComunicationManager()
+        let manager = FavoritesManager(comunicationManager: comunicationManager, coreDataManager: coreDataManager)
         let interactor = FavoritesInteractor(presenter: presenter, manager: manager)
         
         controller.interactor = interactor

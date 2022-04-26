@@ -13,7 +13,10 @@ class MovieDetailConfiguration {
         let controller = MovieDetailViewController()
         let router = MovieDetailRouter(view: controller)
         let presenter = MovieDetailPresenter(view: controller)
-        let manager = MovieDetailManager()
+        let comunicationManager = ComunicationManager()
+        let coreDataManager = CoreDataManager()
+        let manager = MovieDetailManager(comunicationManager: comunicationManager,
+                                         coreDataManager: coreDataManager)
         let interactor = MovieDetailInteractor(presenter: presenter, manager: manager)
         
         controller.interactor = interactor

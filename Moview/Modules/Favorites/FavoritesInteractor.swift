@@ -41,19 +41,17 @@ class FavoritesInteractor: IFavoritesInteractor {
     
     //MARK: Remove Favorite Movie
     func removeFavorite(id: Int){
-        if let movieToRemove = self.movies.filter({$0.id == id}).first {
-            self.manager?.removeFavorite(movieCD: movieToRemove,
-                                         handler: { [weak self] (success) in
-                if success {
-                    if let index = self?.movies.firstIndex(of: movieToRemove){
-                        self?.movies.remove(at: index)
-                        DispatchQueue.main.async {
-                            self?.presenter?.reloadTableView()
-                        }
+        self.manager?.removeFavorite(id: id,
+                                     handler: { [weak self] (success) in
+            if success {
+                if let index = self?.movies.firstIndex(where: {$0.id == id}){
+                    self?.movies.remove(at: index)
+                    DispatchQueue.main.async {
+                        self?.presenter?.reloadTableView()
                     }
                 }
-            })
-        }
+            }
+        })
     }
     
 }
