@@ -16,7 +16,10 @@ class EmptyCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.viewContent.layer.cornerRadius = 10
-        self.lblDescription.text = FavoritesModel.Texts.cellDescription
+    }
+    
+    func setData(text: String){
+        self.lblDescription.text = text
     }
     
 }
